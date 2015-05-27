@@ -11,7 +11,8 @@ import android.widget.Button;
 
 
 public class MainActivity extends Activity {
-private Button mBtnNotification;
+    private Button mBtnNotification;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,18 +21,7 @@ private Button mBtnNotification;
         mBtnNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int notificationId = Integer.valueOf(1);
-                // Build intent for notification content
-
-                NotificationCompat.WearableExtender wearableExtender = new NotificationCompat.WearableExtender();
-                NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(MainActivity.this)
-                        .setSmallIcon(R.drawable.compass67)
-                        .setContentTitle(getResources().getString(R.string.title_notification))
-                        .setContentText(getResources().getString(R.string.context_notification)).extend(wearableExtender);
-
-                NotificationManagerCompat notificationManager2 = NotificationManagerCompat.from(MainActivity.this);
-                // Build the notification and issues it with notification manager.
-                notificationManager2.notify(notificationId, notificationBuilder.build());
+                sendNotification();
             }
         });
     }
@@ -58,5 +48,15 @@ private Button mBtnNotification;
         return super.onOptionsItemSelected(item);
     }
 
+    private void sendNotification() {
+        int notificationId = Integer.valueOf(1);
+        NotificationCompat.WearableExtender wearableExtender = new NotificationCompat.WearableExtender();
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(MainActivity.this)
+                .setSmallIcon(R.drawable.compass67)
+                .setContentTitle(getResources().getString(R.string.title_notification))
+                .setContentText(getResources().getString(R.string.context_notification)).extend(wearableExtender);
 
+        NotificationManagerCompat notificationManager2 = NotificationManagerCompat.from(MainActivity.this);
+        notificationManager2.notify(notificationId, notificationBuilder.build());
+    }
 }

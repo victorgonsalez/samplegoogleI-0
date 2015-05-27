@@ -14,9 +14,4 @@
         android:id="@+id/btn_send_notification"
         android:text="@string/send_notification" />
 
-    <TextView
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
 </RelativeLayout>

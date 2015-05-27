@@ -4,6 +4,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="send_notification">Send a notification</string>
-    <string name="title_notification">Titulo</string>
-    <string name="context_notification">É treta!</string>
+    <string name="title_notification">Google I/0 Notification</string>
+    <string name="context_notification">Lembre-se de que hoje é quase sexta</string>
 </resources>
