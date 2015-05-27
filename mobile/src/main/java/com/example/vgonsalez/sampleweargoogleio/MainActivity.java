@@ -49,14 +49,14 @@ public class MainActivity extends Activity {
     }
 
     private void sendNotification() {
-        int notificationId = Integer.valueOf(1);
+        int notificationId = 1;
         NotificationCompat.WearableExtender wearableExtender = new NotificationCompat.WearableExtender();
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(MainActivity.this)
                 .setSmallIcon(R.drawable.compass67)
                 .setContentTitle(getResources().getString(R.string.title_notification))
                 .setContentText(getResources().getString(R.string.context_notification)).extend(wearableExtender);
 
-        NotificationManagerCompat notificationManager2 = NotificationManagerCompat.from(MainActivity.this);
-        notificationManager2.notify(notificationId, notificationBuilder.build());
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MainActivity.this);
+        notificationManager.notify(notificationId, notificationBuilder.build());
     }
 }
