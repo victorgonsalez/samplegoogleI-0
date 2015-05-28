@@ -7,27 +7,31 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat.Action;
-import android.support.v4.app.NotificationCompat.Builder;
-import android.support.v4.app.NotificationCompat.WearableExtender;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationCompat.*;
 import android.support.v4.app.NotificationManagerCompat;
 import android.view.View;
 import android.widget.Button;
+import android.support.v4.app.NotificationCompat.WearableExtender;
 import android.widget.EditText;
-import android.widget.TextView;
+
+import java.util.Random;
 
 public class MainActivity extends Activity {
 
+    private Button mBtnNotification = null;
+    private EditText mEditMaps;
     private EditText mEditTitle;
-    private EditText mEditContext;
-    private EditText mEditData;
-    private Button mBtnNotification;
+    private EditText mEditMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mEditMaps = (EditText) findViewById(R.id.edit_maps);
+        mEditTitle = (EditText) findViewById(R.id.edit_title);
+        mEditMessage = (EditText) findViewById(R.id.edit_message);
         mBtnNotification = (Button) findViewById(R.id.btn_send_notification);
         mBtnNotification.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,39 +39,37 @@ public class MainActivity extends Activity {
                 sendNotification();
             }
         });
-
-        mEditTitle = (EditText) findViewById(R.id.title_notification);
-        mEditContext = (EditText) findViewById(R.id.context_notification);
-        mEditData = (EditText) findViewById(R.id.data_notification);
     }
 
     private void sendNotification() {
 
         Intent mapIntent = new Intent(Intent.ACTION_VIEW);
-        Uri geoUri = Uri.parse("geo:0,0?q=" + Uri.encode(mEditData.getText().toString()));
+        Uri geoUri = Uri.parse("geo:0,0?q=" + Uri.encode(mEditMaps.getText().toString()));
         mapIntent.setData(geoUri);
         PendingIntent mapPendingIntent = PendingIntent.getActivity(this, 0, mapIntent, 0);
 
-        Intent videoIntent = new Intent(Intent.ACTION_VIEW);
-        Uri videoUri = Uri.parse("https://www.youtube.com/results?search_query="+mEditData.getText().toString());
-        videoIntent.setData(videoUri);
-        PendingIntent videoPendingIntent = PendingIntent.getActivity(this, 0, videoIntent, 0);
+        Uri webpage = Uri.parse("http://www.youtube.com/" + mEditMaps.getText().toString());
+        Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
+        PendingIntent videoPendingIntent = PendingIntent.getActivity(this, 0, webIntent, 0);
 
-        Action mapAction = new Action.Builder(R.drawable.map,
-                getString(R.string.map_action), mapPendingIntent).build();
-        Action videoAction = new Action.Builder(R.drawable.youtube,
-                getString(R.string.video_action), videoPendingIntent).build();
+        NotificationCompat.Action mapApp = new NotificationCompat.Action(R.drawable.pin,
+                getResources().getString(R.string.map_app), mapPendingIntent);
 
-        Bitmap bitmap = BitmapFactory.decodeResource(mEditContext.getResources(),R.drawable.android_background);
-        int notificationId = 1;
+        NotificationCompat.Action videoApp = new NotificationCompat.Action(R.drawable.youtube,
+                getResources().getString(R.string.video_app), videoPendingIntent);
+
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.androidbackground);
+
+        Random random = new Random();
+        int notificationId = random.nextInt(200);
+        WearableExtender wearableExtender = new WearableExtender();
         Builder notificationBuilder = new Builder(MainActivity.this)
-                .setSmallIcon(R.drawable.compass)
+                .setSmallIcon(R.drawable.compassicon)
                 .setLargeIcon(bitmap)
                 .setContentTitle(mEditTitle.getText().toString())
-                .setContentText(mEditContext.getText().toString())
-                .extend(new WearableExtender()
-                        .addAction(mapAction)
-                        .addAction(videoAction));
+                .setContentText(mEditMessage.getText().toString())
+                .extend(wearableExtender.addAction(mapApp)
+                        .addAction(videoApp));
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MainActivity.this);
         notificationManager.notify(notificationId, notificationBuilder.build());

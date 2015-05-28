@@ -2,4 +2,15 @@
     <string name="app_name">SampleWearGoogleI/O</string>
     <string name="hello_round">Round Layout</string>
     <string name="hello_square">Rect Layout</string>
+    <string name="send_notification">Send a notification</string>
+
+    <string name="title_rect">Android Wear Rect</string>
+    <string name="description_rect"> Simple example of rect watch</string>
+
+    <string name="title_round">Android Wear Sample Round</string>
+    <string name="description_round"> Simple example of round watch</string>
+
+    <string name="title_notification">Google I/0</string>
+    <string name="context_notification">Message wear to device</string>
+
 </resources>

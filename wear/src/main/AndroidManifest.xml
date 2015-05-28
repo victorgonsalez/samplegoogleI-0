@@ -3,9 +3,11 @@
     package="com.example.vgonsalez.sampleweargoogleio" >
 
     <uses-feature android:name="android.hardware.type.watch" />
+
+    <permission android:name="android.permission.VIBRATE"/>
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/light"
+        android:icon="@mipmap/compass"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.DeviceDefault" >
         <activity

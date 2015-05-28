@@ -4,13 +4,14 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="send_notification">Send a notification</string>
-    <string name="title_notification">Insert a title</string>
-    <string name="context_notification">Insert a message to notification context</string>
-    <string name="data_notification">Looking for a place on Google Maps</string>
+    <string name="context_notification">Lembre-se de que hoje é quase sexta</string>
+    <string name="open_app">Open App</string>
+    <string name="video_app">Abrir Youtube</string>
+    <string name="map_app">Abrir Maps</string>
     <string name="title">Android Wear Sample</string>
-    <string name="description"> Simple example to change notifications with android wear.</string>
-    <string name="map_action">Open Map</string>
-    <string name="video_action">Open Youtube</string>
+    <string name="title_maps_app">Looking for a place on Google Maps</string>
+    <string name="title_notification">Introduce a title</string>
+    <string name="message_notification"> Insert message to context notification</string>
     <string name="response"></string>
 
 </resources>

@@ -8,8 +8,34 @@
     tools:deviceIds="wear_square">
 
     <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
+        android:id="@+id/main_title"
         android:layout_height="wrap_content"
-        android:text="@string/hello_square" />
+        android:layout_width="match_parent"
+        android:layout_marginTop="40dip"
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal"
+        android:text="@string/title_rect"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/main_description"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dip"
+        android:layout_below="@id/main_title"
+        android:gravity="center_horizontal"
+        android:text="@string/description_rect"
+        android:textStyle="italic"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btn_send_notification"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:layout_marginTop="40dip"
+        android:layout_marginStart="10dip"
+        android:layout_marginEnd="10dip"
+        android:text="@string/send_notification" />
+
 </LinearLayout>
