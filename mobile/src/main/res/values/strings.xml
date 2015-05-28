@@ -6,4 +6,8 @@
     <string name="send_notification">Send a notification</string>
     <string name="title_notification">Google I/0 Notification</string>
     <string name="context_notification">Lembre-se de que hoje é quase sexta</string>
+
+    <string name="title">Android Wear Sample</string>
+    <string name="description"> Simple example to change notifications with android wear.</string>
+    <string name="response"></string>
 </resources>
