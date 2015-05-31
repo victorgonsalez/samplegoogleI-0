@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="android:Theme.Material.Light">
+
+    <style name="AppTheme" parent="android:Theme.Material.Light"></style>
+
+    <style name="EditTextTheme">
+        <item name="android:layout_height">35dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">#D8D8D8</item>
+        <item name="android:layout_marginStart">20dip</item>
+        <item name="android:layout_marginEnd">20dip</item>
+        <item name="android:layout_marginBottom">20dip</item>
+        <item name="android:gravity">center_horizontal|center_vertical</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="TextViewTheme">
+        <item name="android:layout_height">20dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">20dip</item>
+        <item name="android:layout_marginBottom">10dip</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">16sp</item>
     </style>
 </resources>
