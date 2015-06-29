@@ -24,6 +24,7 @@ public class MainActivity extends Activity {
     private EditText mEditTitle;
     private EditText mEditMessage;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
